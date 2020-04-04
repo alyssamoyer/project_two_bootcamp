@@ -4,108 +4,57 @@ d3.json("/api/v1.0/allAUSfiredata").then(function(data) {
 
     //iterate through the hc_arrays and split the entries into arrays of three that represent the x,y,value for the heat map
   
-     hc_arrays = [];
+     dates = [];
+     brights = [];
 
      Object.entries(data).forEach(([key, value]) => {
 
-        var x_value = value.x_value;
-        var y_value = value.y_value;
-        var frp = +(value.frp).toFixed(2);
+        var date = value.acq_date;
+        var time = value.acq_time;
+        var bright = value.brightness;
+     
+        dates.push(date);
+        brights.push(bright);
 
-        hc_arrays.push([x_value, y_value, frp])
+        
       });
+
+      console.log(dates);
+      console.log(brights);
+      //Create horizontal bar chart for the top ten OTU ids
+    var trace1 = {
+        x: dates,
+        y: brights,
+        type:"bar",
+        orientaiton: "h",
+        // text: labels.slice(0,10),
+        marker: {
+            color: 'rgba(243, 181, 4, 0.6)',
+            width: 1
+          },
+          line: {
+            color: 'rgb(253, 158, 4, 1)',
+            width: 1.5
+          }
+
+    };
+
+    var data = [trace1];
+
+    //set the y axis to the type category so all OTUs display
+    var layout = {
+        yaxis: {
+            title: "Brightness (Kelvin)"
+        },
+        title: `Fire Brightness (Kelvin) over Time`
+    };
+    //add chart to page
+    Plotly.newPlot("bar", data, layout);
   
+   
     
-    
-    console.log(hc_arrays);
 
-    //create heat map from high charts library
-    Highcharts.chart('container', {
 
-        data: {
-            csv: document.getElementById('csv').innerHTML
-        },
-    
-        chart: {
-            type: 'heatmap'
-        },
-    
-        boost: {
-            useGPUTranslations: true
-        },
-    
-        title: {
-            text: 'Highcharts heat map',
-            align: 'left',
-            x: 40
-        },
-    
-        subtitle: {
-            text: 'Temperature variation by day and hour through 2017',
-            align: 'left',
-            x: 40
-        },
-    
-        xAxis: {
-            type: 'datetime',
-            min: Date.UTC(2017, 0, 1),
-            max: Date.UTC(2017, 11, 31, 23, 59, 59),
-            labels: {
-                align: 'left',
-                x: 5,
-                y: 14,
-                format: '{value:%B}' // long month
-            },
-            showLastLabel: false,
-            tickLength: 16
-        },
-    
-        yAxis: {
-            title: {
-                text: null
-            },
-            labels: {
-                format: '{value}:00'
-            },
-            minPadding: 0,
-            maxPadding: 0,
-            startOnTick: false,
-            endOnTick: false,
-            tickPositions: [0, 6, 12, 18, 24],
-            tickWidth: 1,
-            min: 0,
-            max: 23,
-            reversed: true
-        },
-    
-        colorAxis: {
-            stops: [
-                [0, '#3060cf'],
-                [0.5, '#fffbbc'],
-                [0.9, '#c4463a'],
-                [1, '#c4463a']
-            ],
-            min: -15,
-            max: 25,
-            startOnTick: false,
-            endOnTick: false,
-            labels: {
-                format: '{value}℃'
-            }
-        },
-    
-        series: [{
-            boostThreshold: 100,
-            borderWidth: 0,
-            nullColor: '#EFEFEF',
-            colsize: 24 * 36e5, // one day
-            tooltip: {
-                headerFormat: 'Temperature<br/>',
-                pointFormat: '{point.x:%e %b, %Y} {point.y}:00: <b>{point.value} ℃</b>'
-            },
-            turboThreshold: Number.MAX_VALUE // #3404, remove after 4.0.5 release
-        }]
-    
-    });
+ 
 });
 
