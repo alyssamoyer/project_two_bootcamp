@@ -35,6 +35,12 @@ def welcome():
 def heatmap():
     return render_template('index_map.html')
     
+
+@app.route("/barchart")
+def barChart():
+    return render_template('index_barchart.html')
+
+
 # return list of dictionaries of our database! 
 @app.route("/api/v1.0/allAUSfiredata")
 def allAUSfiredata():
