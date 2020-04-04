@@ -31,7 +31,7 @@ def welcome():
         f"/api/v1.0/allAUSfiredata"
     )
 
-@app.route("/frp_heatmap")
+@app.route("/bar")
 def heatmap():
     return render_template('index_map.html')
     
