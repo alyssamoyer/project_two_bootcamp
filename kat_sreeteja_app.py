@@ -67,5 +67,22 @@ def allAUSfiredata():
 
     return jsonify(all_fire_aus_data)
 
+@app.route("/dropmarker")
+def dropmarker():
+    """Return lat and long for wildfires"""
+    session = Session(engine)
+    lat_long_result = session.query(Aus_fire.latitude, Aus_fire.longitude).all()
+    session.close()
+
+    fire_aus_lat_long = []
+
+    for latitude, longitude in lat_long_result:
+        lat_long_dict = {}
+        lat_long_dict["latitude"] = latitude
+        lat_long_dict["longitude"] = longitude
+        fire_aus_lat_long.append(lat_long_dict)
+    
+    return jsonify(lat_long_result)
+
 if __name__ == '__main__':
     app.run(debug=True)
