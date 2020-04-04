@@ -116,6 +116,20 @@
     opacity: .7;
     color: black;
   }
+
+  .panel > .panel-heading {
+    background-image: none;
+    background-color: #E9967A;
+    color: white;
+    font-size:130%;
+
+}
+.panel > .panel-body {
+  font-size:100%;
+
+}
+
+
   
   /* input placeholder color changes */
   /* .form-control::-webkit-input-placeholder {
