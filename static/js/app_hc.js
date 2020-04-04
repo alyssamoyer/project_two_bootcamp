@@ -10,7 +10,6 @@ d3.json("/api/v1.0/allgroupdata").then(function(data) {
     console.log(data);
  
 
-
     //iterate through the hc_arrays and split the entries into arrays of three that represent the x,y,value for the heat map
   
      hc_arrays = [];

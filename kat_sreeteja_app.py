@@ -31,6 +31,10 @@ def welcome():
         f"/api/v1.0/allAUSfiredata"
     )
 
+@app.route("/frp_heatmap")
+def heatmap():
+    return render_template('index_hm.html')
+    
 # return list of dictionaries of our database! 
 @app.route("/api/v1.0/allAUSfiredata")
 def allAUSfiredata():
