@@ -1,0 +1,44 @@
+<!-- https://belmoussaoui.com/2019/06/28/display-geojson-data-using-flask-and-mongodb/-->
+<!-- https://www.youtube.com/watch?v=nZaZ2dB6pow -->
+
+<!DOCTYPE html>
+<head>
+    <title>GeoJSON + Flask + MongoDB</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>
+        Australia fire happen locations! 
+    </h1>
+<div id="map" style="height: 100vh;"></div>
+
+<script>
+
+var map = L.map('map').setView([-33.8651, 151.2099], 5)
+// if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition((position) => {
+//         map.panTo(L.latLng(position.coords.latitude, position.coords.longitude))
+//     })
+// }
+L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: 'Open street map'
+}).addTo(map)
+
+// might need to write a javascript in here to read data from the flask app - to connect to the link bellow. 
+d3.json("/dropmarker").then(function(data) {
+    console.log(data);
+    
+
+// axios.get('http://127.0.0.1:5000/dropmaker')
+//     .then(response => {
+//         console.log(response.data)
+//         L.geoJSON(response.data, {}).addTo(map);
+
+//     })
+</script>
+
+</body>
+</html>
