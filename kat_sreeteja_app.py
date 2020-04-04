@@ -33,7 +33,7 @@ def welcome():
 
 @app.route("/bar")
 def heatmap():
-    return render_template('index_hm.html')
+    return render_template('index_map.html')
     
 # return list of dictionaries of our database! 
 @app.route("/api/v1.0/allAUSfiredata")
