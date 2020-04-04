@@ -6,14 +6,26 @@ function getPointCategoryName(point, x_y) {
     return axis.categories[point[isY ? 'y' : 'x']];
 }
 
-d3.json("../../fire_archive_M6_96619_group.json").then(function(data) {
+d3.json("/api/v1.0/allgroupdata").then(function(data) {
     console.log(data);
     var hc_values = data.hc_values
 
     hc_arrays = [];
 
     //iterate through the hc_arrays and split the entries into arrays of three that represent the x,y,value for the heat map
-    Object.entries(hc_values).forEach(([key, value]) => {
+    // Object.entries(hc_values).forEach(([key, value]) => {
+    //       var split_value = value.split(",");
+    //       var date_time_frp = [];
+    //       split_value.forEach((string)  => {
+    //         var int = parseInt(string);
+    //         console.log(int);
+    //         date_time_frp.push(int);
+
+    //       })
+    //       hc_arrays.push(date_time_frp);
+    //   });
+  
+     Object.entries(hc_values).forEach(([key, value]) => {
           var split_value = value.split(",");
           var date_time_frp = [];
           split_value.forEach((string)  => {
