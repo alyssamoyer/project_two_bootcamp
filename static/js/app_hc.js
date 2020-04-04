@@ -8,33 +8,20 @@ function getPointCategoryName(point, x_y) {
 
 d3.json("/api/v1.0/allgroupdata").then(function(data) {
     console.log(data);
-    var hc_values = data.hc_values
+ 
 
-    hc_arrays = [];
 
     //iterate through the hc_arrays and split the entries into arrays of three that represent the x,y,value for the heat map
-    // Object.entries(hc_values).forEach(([key, value]) => {
-    //       var split_value = value.split(",");
-    //       var date_time_frp = [];
-    //       split_value.forEach((string)  => {
-    //         var int = parseInt(string);
-    //         console.log(int);
-    //         date_time_frp.push(int);
-
-    //       })
-    //       hc_arrays.push(date_time_frp);
-    //   });
   
-     Object.entries(hc_values).forEach(([key, value]) => {
-          var split_value = value.split(",");
-          var date_time_frp = [];
-          split_value.forEach((string)  => {
-            var int = parseInt(string);
-            console.log(int);
-            date_time_frp.push(int);
+     hc_arrays = [];
 
-          })
-          hc_arrays.push(date_time_frp);
+     Object.entries(data).forEach(([key, value]) => {
+
+        var x_value = value.x_value;
+        var y_value = value.y_value;
+        var frp = +(value.frp).toFixed(2);
+
+        hc_arrays.push([x_value, y_value, frp])
       });
   
     
