@@ -38,4 +38,4 @@ We wanted to understand if fire brightness and radiative power were related. So 
 ## Notes to Run
 Programs must be installed to run app: simplejson, sqlalchemy, flask
 
-Run app_all,py
+Run app_all.py
