@@ -13,7 +13,7 @@ From jupyter notebook the clean data was exported to CSVs. We then created two d
 NOTE: Installing simplejson is required for data to load properly.
 
 ## Visualizations
-Our visulizaions were displayed on our homepage:
+Our visualizations were displayed on our homepage:
 ![Dates](static/images/page.PNG)
 
 For our first visualization we choose to use the javascript library High Chart's heatmap. We grouped the average fire radiative power by day of week and time of day to see if there were any patterns in the radiative power by weekday or time of day. Fire Radiative Power (FRP) is a measure of the rate of radiant heat output from a fire (Roberts & Wooster "SEVIRI Fire Radiative Power (FRP) Dataset"). It is used to quantify burned biomass. Quantifying biomass is important because it helps estimate the amount of smoke caused by the fire. Smoke has detrimental effects on local humans and animals as well as larger consequences for the environment.
