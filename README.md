@@ -34,3 +34,8 @@ We wanted to understand if fire brightness and radiative power were related. So 
 
  
 ![Dates](static/images/scatter.PNG)
+
+## Notes to Run
+Programs must be installed to run app: simplejson, sqlalchemy, flask
+
+Run app_all,py
