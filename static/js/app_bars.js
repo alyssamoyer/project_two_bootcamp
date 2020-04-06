@@ -38,7 +38,7 @@ d3.json("/api/v1.0/allAUSfiredata").then(function(data) {
       xaxis: {
          title: "Date"
       },
-      title: `Fire Brightness (Kelvin) over Time`
+      title: `Average Fire Brightness (Kelvin) per Day`
   };
   //add chart to page
   Plotly.newPlot("bar", data, layout);

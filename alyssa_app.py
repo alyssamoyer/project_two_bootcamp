@@ -37,18 +37,6 @@ def welcome():
 def heatmap():
     return render_template('index_hc.html')
 
-#returning 1 column
-# @app.route("/api/v1.0/count")
-# def count():
-#     #create our session link from python to database & return the 2nd column
-#     session = Session(engine)
-#     results = session.query(datetime.strftime(Group_fire.day_of_week)).all()
-#     session.close()
-    
-#     # Convert list of tuples into normal list
-#     all_fire = list(np.ravel(results))
-#     return jsonify(all_fire)
-
 @app.route("/api/v1.0/allgroupdata")
 def allgroupdata():
     session = Session(engine)
