@@ -11,3 +11,5 @@ The CSV of the data was loaded into jupyter notebook as a dataframe. We looped t
 From jupyter notebook the clean data was exported to CSVs. We then created two databases in SQLite to hold the larger dataset and the grouped data. In our python app we then connected to the database and created flask app routes for each dataset. The app route returns the data in json format. NOTE: Installing simplejson is required for data to load properly. We created app routes for each visualization. The app routes render each visualizations HTML index. 
 
 ## Visualizations
+![Dates](static/images/bar_chart.png)
+![Dates](static/images/heatmap.png)
