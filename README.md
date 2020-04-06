@@ -16,13 +16,21 @@ NOTE: Installing simplejson is required for data to load properly.
 Our visulizaions were displayed on our homepage:
 ![Dates](static/images/page.PNG)
 
+For our first visualization we choose to use the javascript library High Chart's heatmap. We grouped the average fire radiative power by day of week and time of day to see if there were any patterns in the radiative power by weekday or time of day. Fire Radiative Power (FRP) is a measure of the rate of radiant heat output from a fire (Roberts & Wooster "SEVIRI Fire Radiative Power (FRP) Dataset"). It is used to quantify burned biomass. Quantifying biomass is important because it helps estimate the amount of smoke caused by the fire. Smoke has detrimental effects on local humans and animals as well as larger consequences for the environment.
+
+There were a few time periods that showed a clear heat spot such as Saturday, 8 -12 UTC but there was no clear overall pattern between fire radiative power and the time of day. Taking the average fire radiative power did hide the full range of FRPs over this time period. Well the heat map only showed a range from 0 to 200 the max FRP was actually 3679 MW.  
+
+
+
+![Dates](static/images/heatmap.PNG)
 The NASA satellites collected data on the brightness of the fire in Kelvin. For each day the satellites collected hundreds of brightness data points by latitude and longitude. For this chart we took the average brightness per day. This was not specific to a particular location in Australia but an average across locations. We expected to see some variation in brightness of the fire but there was very little variation in average fire brightness. 
 
 Averaging the values by day may have not been the best choice to analyze this data. When we look at the raw data there is a range in the brightness of the fire with the max brightness being 504 Kelvin and the minimum being 300 Kelvin. A better way to look at this data would have been by latitude and longitude as the fire brightness varied more by location rather than day. Our original plan was to create a heatmap of the fire brightness.
 
 ![Dates](static/images/bar_chart.PNG)
 
- For our second visualization we choose to use the javascript library High Chart's heatmap. We grouped the fire radiative power by day of week and time of day to see if there were any patterns in the radiative power by weekday or time of day.
 
+We wanted to understand if fire brightness and radiative power were related. So we created a scatter plot of the two. For this scatter we used the raw data points since the average per day was not representative of the full range of brightness and FRP. We saw a positive correlation between brightness and FRP. There were only a few points that did not show a relationship with brightness having  a large value and fire radiative power being zero. Fire radiative power has a much larger range than fire brightness. It seems that fire radiative power can get very strong without affecting the brightness of the fire. If we had more time it would be interesting to compare the topography of the region to see how the burn material affects fire brightness and radiative power.
 
-![Dates](static/images/heatmap.PNG)
+ 
+![Dates](static/images/scatter.PNG)
